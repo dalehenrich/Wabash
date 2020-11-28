@@ -3,7 +3,7 @@ RwLoadSpecificationV2 {
 	#gitUrl : 'file:///home/dhenrich/rogue/_homes/rogue/_home/shared/repos/Wabash',
 	#projectSpecFile : 'rowan/project.ston',
 	#componentNames : [
-		'Core', 'ClientTests', 'ServierTests'
+		'Core', 'ClientTests', 'ServerTests', 'Client', 'Server'
 	],
 	#comment : ''
 }
