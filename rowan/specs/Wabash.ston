@@ -1,0 +1,7 @@
+RwLoadSpecificationV2 {
+	#projectName : 'Wabash',
+	#gitUrl : 'file:///home/dhenrich/rogue/_homes/rogue/_home/shared/repos/Wabash',
+	#projectSpecFile : 'rowan/project.ston',
+	#componentNames : [ ],
+	#comment : ''
+}
