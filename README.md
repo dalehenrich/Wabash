@@ -1,10 +1,18 @@
 ## Wabash
 Experiments with RemoteServiceReplication
 
-### Wabash load script
+### Wabash GemStone/Rowan load script
 ```smalltalk
 (RwSpecification fromFile: '$ROWAN_PROJECTS_HOME/Wabash/rowan/specs/Wabash.ston')
 	resolve
+	load
+```
+### Wabash Pharo load script
+```smalltalk
+Metacello new
+	baseline: 'Wabash';
+	repository: 'tonel:///home/dhenrich/rogue/_homes/rogue/_home/shared/repos/Wabash/rowan/src';
+	get;
 	load
 ```
 ### Rowan project creation script
