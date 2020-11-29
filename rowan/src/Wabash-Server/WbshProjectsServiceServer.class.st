@@ -1,10 +1,10 @@
 Class {
-	#name : 'WbshProjectsServerService',
+	#name : 'WbshProjectsServiceServer',
 	#superclass : 'WbshProjectsService',
 	#category : 'Wabash-Server'
 }
 
 { #category : 'accessing' }
-WbshProjectsServerService >> projectNames [
+WbshProjectsServiceServer >> projectNames [
 	projectNames := (Rowan image loadedProjects collect: [:each | each name ]) asArray sort.
 ]

@@ -19,3 +19,9 @@ BaselineOfWabash >> baseline: spec [
 	spec
 		group: 'default' with: #('ALL').
 ]
+
+{ #category : 'accessing' }
+BaselineOfWabash >> projectClass [
+	Smalltalk at: #'MetacelloCypressBaselineProject' ifPresent: [ :cl | ^ cl ].
+	^ super projectClass
+]

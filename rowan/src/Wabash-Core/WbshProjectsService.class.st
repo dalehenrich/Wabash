@@ -10,7 +10,7 @@ Class {
 { #category : 'accessing' }
 WbshProjectsService class >> templateClassName [
 
-	^'WbshProjects'
+	^'WbshProjectsService'
 ]
 
 { #category : 'accessing' }
