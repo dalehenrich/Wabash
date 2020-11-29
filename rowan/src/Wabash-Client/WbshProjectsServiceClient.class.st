@@ -3,3 +3,8 @@ Class {
 	#superclass : 'WbshProjectsService',
 	#category : 'Wabash-Client'
 }
+
+{ #category : 'accessing' }
+WbshProjectsServiceClient >> projectNames [
+	^remoteSelf projectNames wait
+]

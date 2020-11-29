@@ -9,15 +9,15 @@ BaselineOfWabash >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-			do: [ spec
+		do: [ spec
 				package: 'Wabash-Core';
 				package: 'Wabash-Client';
 				package: 'Wabash-Server';
 				package: 'Wabash-Client-Tests';
 				package: 'Wabash-Server-Tests';
 				yourself ].
-	spec
-		group: 'default' with: #('ALL').
+	spec for: #pharo do: [ spec package: 'Wabash-Pharo' ].
+	spec group: 'default' with: #('ALL')
 ]
 
 { #category : 'accessing' }
