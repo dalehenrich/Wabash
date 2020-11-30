@@ -6,3 +6,9 @@ Class {
 	],
 	#category : 'Wabash-Core'
 }
+
+{ #category : 'accessing' }
+WabashBrowserService class >> templateClassName [
+
+	^ self class name
+]
