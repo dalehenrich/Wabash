@@ -1,12 +1,10 @@
 RwSimpleProjectLoadComponentV2 {
-	#name : 'Core',
+	#name : 'platforms/Core',
 	#condition : 'common',
 	#projectNames : [ ],
 	#componentNames : [
-		'platforms/Core'
+		'platforms/gemstone/Core'
 	],
-	#packageNames : [
-		'Wabash-Core'
-	],
+	#packageNames : [ ],
 	#comment : ''
 }

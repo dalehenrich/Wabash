@@ -1,0 +1,21 @@
+RwPlatformNestedProjectLoadComponentV2 {
+	#name : 'platforms/gemstone/Core',
+	#condition : [
+		'gemstone'
+	],
+	#packageNames : [
+		'Wabash-GemStone'
+	],
+	#conditionalPackageMapSpecs : {
+		'gemstone' : {
+			'allusers' : {
+				#packageNameToPlatformPropertiesMap : {
+					'Wabash-GemStone' : {
+						'symbolDictName' : 'RowanKernel'
+					}
+				}
+			}
+		}
+	},
+	#comment : ''
+}
