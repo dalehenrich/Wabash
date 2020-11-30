@@ -1,31 +1,3 @@
-"
-On server execute the following in a topaz linked session:
-	| host port acceptor connection |
-	host := '127.0.0.1'.
-	port := 47652.
-	acceptor := RsrAcceptConnection
-		host: host
-		port: port.
-	connection := acceptor waitForConnection.
-	[ true ] whileTrue: [ (Delay forSeconds: 1) wait ]
-
-
-On client execute the following in a playground: 
-	| host port initiator |
-	host := '127.0.0.1'.
-	port := 47652.
-	initiator := RsrInitiateConnection host: host port: port.
-	connection := initiator connect.
-	client := connection serviceFor: #WbshProjectsServiceClient.
-	client inspect.
-
-Use the inspector to send messages like: 
-	self projectNames.
-	WbshProjectListExample openOn: self
-
-	
-
-"
 Class {
 	#name : 'WbshAbstractProjectListExample',
 	#superclass : 'MorphTreeModel',
