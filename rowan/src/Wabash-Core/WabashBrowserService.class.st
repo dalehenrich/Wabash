@@ -12,3 +12,8 @@ WabashBrowserService class >> templateClassName [
 
 	^ #WabashBrowserService
 ]
+
+{ #category : 'accessing' }
+WabashBrowserService >> projectNames [
+	^ projectNames
+]

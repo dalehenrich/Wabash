@@ -19,5 +19,5 @@ WabashBrowserServiceServer >> _browserService [
 { #category : 'accessing' }
 WabashBrowserServiceServer >> projectNames [
 	^ projectNames
-		ifNil: [ projectNames := self _browserService projects collect: [ :each | each name ] ]
+		ifNil: [ projectNames := (self _browserService projects collect: [ :each | each name ]) asArray ]
 ]
