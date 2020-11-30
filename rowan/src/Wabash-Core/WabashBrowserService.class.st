@@ -10,5 +10,5 @@ Class {
 { #category : 'accessing' }
 WabashBrowserService class >> templateClassName [
 
-	^ self class name
+	^ #WabashBrowserService
 ]
