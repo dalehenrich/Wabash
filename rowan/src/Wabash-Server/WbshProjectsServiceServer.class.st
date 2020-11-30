@@ -6,5 +6,5 @@ Class {
 
 { #category : 'accessing' }
 WbshProjectsServiceServer >> projectNames [
-	^ projectNames := (Rowan image loadedProjects collect: [:each | each name ]) asArray sort.
+	^ projectNames := Rowan projectNames.
 ]
