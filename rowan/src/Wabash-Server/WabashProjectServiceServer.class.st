@@ -8,6 +8,12 @@ Class {
 }
 
 { #category : 'accessing' }
+WabashProjectServiceServer >> packageNames [
+
+	packageNames ifNil: [ self projectService packages]
+]
+
+{ #category : 'accessing' }
 WabashProjectServiceServer >> projectService [
 	^projectService
 ]

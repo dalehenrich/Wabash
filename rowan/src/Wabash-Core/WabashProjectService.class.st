@@ -2,7 +2,8 @@ Class {
 	#name : 'WabashProjectService',
 	#superclass : 'RsrService',
 	#instVars : [
-		'projectName'
+		'projectName',
+		'packageNames'
 	],
 	#category : 'Wabash-Core'
 }
