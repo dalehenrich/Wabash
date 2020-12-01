@@ -9,8 +9,7 @@ Class {
 
 { #category : 'accessing' }
 WabashProjectServiceServer >> packageNames [
-
-	packageNames ifNil: [ self projectService packages]
+	^ packageNames ifNil: [ packageNames := self projectService packageNames asArray sort]
 ]
 
 { #category : 'accessing' }

@@ -26,5 +26,5 @@ WabashBrowserServiceServer >> projectNamed: aString [
 { #category : 'accessing' }
 WabashBrowserServiceServer >> projectNames [
 	^ projectNames
-		ifNil: [ projectNames :=  (self _browserService _projects collect: [ :each | each name ]) asArray ]
+		ifNil: [ projectNames :=  (self _browserService _projects collect: [ :each | each name ]) asArray sort ]
 ]
