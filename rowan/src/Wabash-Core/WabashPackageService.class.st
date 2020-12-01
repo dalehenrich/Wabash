@@ -1,25 +1,25 @@
 Class {
-	#name : 'WabashProjectService',
+	#name : 'WabashPackageService',
 	#superclass : 'RsrService',
 	#instVars : [
-		'projectName',
-		'packageNames'
+		'packageName',
+		'classNames'
 	],
 	#category : 'Wabash-Core'
 }
 
 { #category : 'accessing' }
-WabashProjectService class >> templateClassName [
+WabashPackageService class >> templateClassName [
 
-	^ #WabashProjectService
+	^ #WabashPackageService
 ]
 
 { #category : 'accessing' }
-WabashProjectService >> packageNamed: aString [
+WabashPackageService >> classNamed: aString [
 	self subclassResponsibility
 ]
 
 { #category : 'accessing' }
-WabashProjectService >> packageNames [
+WabashPackageService >> classNames [
 	self subclassResponsibility
 ]

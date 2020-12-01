@@ -12,3 +12,13 @@ WabashBrowserService class >> templateClassName [
 
 	^ #WabashBrowserService
 ]
+
+{ #category : 'accessing' }
+WabashBrowserService >> projectNamed: aString [
+	self subclassResponsibility
+]
+
+{ #category : 'accessing' }
+WabashBrowserService >> projectNames [
+	self subclassResponsibility
+]

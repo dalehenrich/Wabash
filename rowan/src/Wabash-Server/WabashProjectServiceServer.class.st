@@ -8,28 +8,39 @@ Class {
 	#category : 'Wabash-Server'
 }
 
-{ #category : 'accessing' }
-WabashProjectServiceServer >> packageNames [
-	^ packageNames
-		ifNil: [ packageNames := self packageServices keys asArray sort ]
-]
-
 { #category : 'private' }
-WabashProjectServiceServer >> packageServices [
+WabashProjectServiceServer >> _packageServices [
 	^ packageServices
 		ifNil: [ 
 			packageServices := Dictionary new.
-			self projectService packageServices
-				do: [ :ps | packageServices at: ps packageName put: ps ].
+			self _projectService packageServices
+				do: [ :ps | 
+					| service |
+					ps update.
+					service := WabashPackageServiceServer new
+						_packageService: ps;
+						yourself.
+					packageServices at: ps packageName put: service ].
 			packageServices ]
 ]
 
 { #category : 'private' }
-WabashProjectServiceServer >> projectService [
-	^projectService
+WabashProjectServiceServer >> _projectService [
+	^ projectService
 ]
 
 { #category : 'private' }
-WabashProjectServiceServer >> projectService: object [
+WabashProjectServiceServer >> _projectService: object [
 	projectService := object
+]
+
+{ #category : 'accessing' }
+WabashProjectServiceServer >> packageNamed: aString [
+	^ self _packageServices at: aString
+]
+
+{ #category : 'accessing' }
+WabashProjectServiceServer >> packageNames [
+	^ packageNames
+		ifNil: [ packageNames := self _packageServices keys asArray sort ]
 ]
