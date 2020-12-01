@@ -31,6 +31,12 @@ WabashClientTest >> testBrowser [
 	projectNames := browserService projectNames.
 	self
 		assert:
-			#('Cypress' ' FileSystemGs' 'gemstoneBaseImage' 'RemoteServiceReplication' 'Rowan' 'STON' 'Wabash' '(UnPackaged)')
-				sort = projectNames
+			{'Cypress'.
+			' FileSystemGs'.
+			'gemstoneBaseImage'.
+			'RemoteServiceReplication'.
+			'Rowan'.
+			'STON'.
+			'Wabash'.
+			'(UnPackaged)'} sort = projectNames
 ]

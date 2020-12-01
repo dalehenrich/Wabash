@@ -29,7 +29,8 @@ WabashBrowserServiceServer >> _projectServices [
 					service := WabashProjectServiceServer new
 						_projectService: svce;
 						yourself.
-					projectServices at: svce name put: service ] ]
+					projectServices at: svce name put: service ].
+			projectServices ]
 ]
 
 { #category : 'accessing' }
