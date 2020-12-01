@@ -38,5 +38,5 @@ WabashClientTest >> testBrowser [
 			'Rowan'.
 			'STON'.
 			'Wabash'.
-			'(UnPackaged)'} sort = projectNames
+			'UnPackaged'} sort = projectNames
 ]
