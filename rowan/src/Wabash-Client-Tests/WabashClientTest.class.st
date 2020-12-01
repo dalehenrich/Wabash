@@ -27,16 +27,25 @@ WabashClientTest >> tearDown [
 
 { #category : 'tests' }
 WabashClientTest >> testBrowser [
-	| projectNames |
+	| projectNames projectService packageNames |
 	projectNames := browserService projectNames.
 	self
 		assert:
 			{'Cypress'.
-			' FileSystemGs'.
+			'FileSystemGs'.
 			'gemstoneBaseImage'.
 			'RemoteServiceReplication'.
 			'Rowan'.
 			'STON'.
-			'Wabash'.
-			'UnPackaged'} sort = projectNames
+			'UnPackaged'.
+			'Wabash'} = projectNames.
+	projectService := browserService projectNamed: 'STON'.
+	packageNames := projectService packageNames.
+	self
+		assert:
+			{'STON-Core'.
+			'STON-GemStoneBase'.
+			'STON-GemStoneCommon'.
+			'STON-GemStone-Kernel'.
+			'STON-STON-GemStone-Kernel36x'} = packageNames
 ]
