@@ -17,7 +17,7 @@ WabashBrowserServiceServer >> _browserService [
 ]
 
 { #category : 'accessing' }
-WabashBrowserServiceServer >> _projectNamed: aString [
+WabashBrowserServiceServer >> projectNamed: aString [
 	^ (_connection serviceFor: #'WabashProjectServiceServer')
 		projectService: (self _browserService _projectNamed: aString)
 ]

@@ -6,3 +6,9 @@ Class {
 	],
 	#category : 'Wabash-Core'
 }
+
+{ #category : 'accessing' }
+WabashProjectService class >> templateClassName [
+
+	^ #WabashProjectService
+]
