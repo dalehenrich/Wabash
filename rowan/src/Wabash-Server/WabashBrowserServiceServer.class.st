@@ -17,6 +17,12 @@ WabashBrowserServiceServer >> _browserService [
 ]
 
 { #category : 'accessing' }
+WabashBrowserServiceServer >> _projectNamed: aString [
+	^ (_connection serviceFor: #'WabashProjectServiceServer')
+		projectService: (self _browserService _projectNamed: aString)
+]
+
+{ #category : 'accessing' }
 WabashBrowserServiceServer >> projectNames [
 	^ projectNames
 		ifNil: [ projectNames :=  (self _browserService _projects collect: [ :each | each name ]) asArray ]

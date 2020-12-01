@@ -1,4 +1,4 @@
 { 
 	#format : 'tonel',
-	#convention : 'Rowan'
+	#convention : 'RowanHybrid'
 }
