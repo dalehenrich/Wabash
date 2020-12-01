@@ -23,13 +23,13 @@ WabashBrowserServiceServer >> _projectServices [
 		ifNil: [ 
 			projectServices := Dictionary new.
 			self _browserService _projects
-				do: [ :each | 
+				do: [ :svce | 
 					| service |
-					each update.
+					svce update.
 					service := WabashProjectServiceServer new
-						_projectService: each;
+						_projectService: svce;
 						yourself.
-					projectServices at: each name put: service ] ]
+					projectServices at: svce name put: service ] ]
 ]
 
 { #category : 'accessing' }

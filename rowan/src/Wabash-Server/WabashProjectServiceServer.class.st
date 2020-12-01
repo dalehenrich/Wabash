@@ -14,13 +14,13 @@ WabashProjectServiceServer >> _packageServices [
 		ifNil: [ 
 			packageServices := Dictionary new.
 			self _projectService packageServices
-				do: [ :ps | 
+				do: [ :svce | 
 					| service |
-					ps update.
+					svce update.
 					service := WabashPackageServiceServer new
-						_packageService: ps;
+						_packageService: svce;
 						yourself.
-					packageServices at: ps packageName put: service ].
+					packageServices at: svce name put: service ].
 			packageServices ]
 ]
 

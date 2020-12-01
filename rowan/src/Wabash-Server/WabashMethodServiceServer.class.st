@@ -2,7 +2,8 @@ Class {
 	#name : 'WabashMethodServiceServer',
 	#superclass : 'WabashMethodService',
 	#instVars : [
-		'methodService'
+		'methodService',
+		'metaclasMethodService'
 	],
 	#category : 'Wabash-Server'
 }
@@ -10,4 +11,9 @@ Class {
 { #category : 'accessing' }
 WabashMethodServiceServer >> _methodService [
 	^methodService
+]
+
+{ #category : 'accessing' }
+WabashMethodServiceServer >> _methodService: object [
+	methodService := object
 ]

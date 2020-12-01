@@ -23,6 +23,16 @@ WabashClassServiceServer >> _classService: object [
 { #category : 'accessing' }
 WabashClassServiceServer >> _metaclassMethodServices [
 	^ metaclassMethodServices
+		ifNil: [ 
+			metaclassMethodServices := Dictionary new.
+			self _metaclassService _methods
+				do: [ :svce | 
+					| service |
+					svce update.
+					service := WabashMethodServiceServer new.
+					service _methodService: svce.
+					metaclassMethodServices at: svce name put: service ].
+			metaclassMethodServices ]
 ]
 
 { #category : 'accessing' }
@@ -42,25 +52,35 @@ WabashClassServiceServer >> _metaclassService: object [
 
 { #category : 'accessing' }
 WabashClassServiceServer >> _methodServices [
-	^methodServices
+	^ methodServices
+		ifNil: [ 
+			methodServices := Dictionary new.
+			self _classService _methods
+				do: [ :svce | 
+					| service |
+					svce update.
+					service := WabashMethodServiceServer new.
+					service _methodService: svce.
+					methodServices at: svce name put: service ].
+			methodServices ]
 ]
 
 { #category : 'accessing' }
 WabashClassServiceServer >> classMethodNamed: aString [
-	^ (remoteSelf classMethodNamed: aString) wait
+	^ self _metaclassMethodServices at: aString
 ]
 
 { #category : 'accessing' }
 WabashClassServiceServer >> classMethodNames [
-	^ (remoteSelf classMethodNames) wait
+	^ self _metaclassMethodServices keys asArray sort
 ]
 
 { #category : 'accessing' }
 WabashClassServiceServer >> instanceMethodNamed: aString [
-	^ (remoteSelf instanceMethodNamed: aString) wait
+	^ self _methodServices at: aString
 ]
 
 { #category : 'accessing' }
 WabashClassServiceServer >> instanceMethodNames [
-	^ (remoteSelf instanceMethodNames) wait
+	^ self _methodServices keys asArray sort
 ]

@@ -17,10 +17,11 @@ WabashPackageServiceServer >> _classServices [
 				do: [ :svce | 
 					| service |
 					svce update.
-					service := WabashClassServiceServer new
-						_classService: svce;
-						yourself.
-					classServices at: svce className put: service ].
+					service := WabashClassServiceServer new.
+					svce meta
+						ifTrue: [ service _metaclassService: svce ]
+						ifFalse: [ service _classService: svce ].
+					classServices at: svce name put: service ].
 			classServices ]
 ]
 
