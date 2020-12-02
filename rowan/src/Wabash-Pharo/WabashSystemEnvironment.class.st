@@ -9,7 +9,7 @@ WabashSystemEnvironment class >> currentImage [
 	^currentImage ifNil: [
 		currentImage := self new
 			name: 'remote gemstone';
-			globals: Smalltalk globals;
+			globals: (WabashFullBrowser connection serviceFor: #WabashSystemGlobalsService);
 			packageOrganizer: RPackageOrganizer default;
 			changesAnnouncer: SystemAnnouncer uniqueInstance]
 ]

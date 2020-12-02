@@ -1,13 +1,49 @@
 Class {
 	#name : 'WabashFullBrowser',
 	#superclass : 'ClyFullBrowser',
+	#classVars : [
+		'Connection'
+	],
 	#category : 'Wabash-Pharo'
 }
 
+{ #category : 'accessing' }
+WabashFullBrowser class >> connection [
+
+	^ Connection
+]
+
+{ #category : 'rsr' }
+WabashFullBrowser class >> initiateConnection [
+	| host port initiator |
+	host := '127.0.0.1'.
+	port := 47652.
+	initiator := RsrInitiateConnection host: host port: port.
+	Connection := initiator connect.
+
+]
+
 { #category : 'opening' }
 WabashFullBrowser class >> open [
+
 	<script>
+	Connection ifNil: [ self initiateConnection ].
 	^ self openOn: WabashNavigationEnvironment currentImage
+]
+
+{ #category : 'opening/closing' }
+WabashFullBrowser >> close [
+
+	super close.
+	Connection ifNotNil: [ Connection close ].
+	Connection := nil
+]
+
+{ #category : 'navigation' }
+WabashFullBrowser >> navigateSpawnedFullBrowser: aFullBrowser [
+
+	self initiateConnection.
+	^ super navigateSpawnedFullBrowser: aFullBrowser
 ]
 
 { #category : 'initialization' }
