@@ -20,5 +20,5 @@ WabashMethodServiceServer >> _methodService: object [
 
 { #category : 'accessing' }
 WabashMethodServiceServer >> methodName [
-	methodName ifNil: [ methodName := self _methodService selector ]
+	^ methodName ifNil: [ methodName := self _methodService selector asString ]
 ]

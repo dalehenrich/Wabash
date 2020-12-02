@@ -15,12 +15,24 @@ WabashPackageServiceServer >> _classServices [
 			classServices := Dictionary new.
 			self _packageService _classes
 				do: [ :svce | 
-					| service |
+					| service otherSvce |
 					svce update.
 					service := WabashClassServiceServer new.
+					otherSvce := RowanClassService new
+						name: svce name;
+						meta: svce meta not;
+						minimalForClassNamed: svce name;
+						update;
+						yourself.
 					svce meta
-						ifTrue: [ service _metaclassService: svce ]
-						ifFalse: [ service _classService: svce ].
+						ifTrue: [ 
+							service
+								_metaclassService: svce;
+								classService: otherSvce ]
+						ifFalse: [ 
+							service
+								_classService: svce;
+								_metaclassService: otherSvce ].
 					classServices at: svce name put: service ].
 			classServices ]
 ]

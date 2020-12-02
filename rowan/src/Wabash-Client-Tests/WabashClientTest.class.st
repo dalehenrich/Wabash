@@ -74,5 +74,5 @@ WabashClientTest >> testBrowser [
 	classMethodNames := classService classMethodNames.
 	self assert: {'signal:streamPosition:'} = classMethodNames.
 	methodService := classService instanceMethodNamed: 'streamPosition:'.
-	self assert: methodService methodName = 'streamPosition:'
+	self assert: (methodService methodName) = 'streamPosition:'
 ]

@@ -31,7 +31,7 @@ WabashClassServiceServer >> _metaclassMethodServices [
 					svce update.
 					service := WabashMethodServiceServer new.
 					service _methodService: svce.
-					metaclassMethodServices at: svce name put: service ].
+					metaclassMethodServices at: svce name asString put: service ].
 			metaclassMethodServices ]
 ]
 
@@ -61,7 +61,7 @@ WabashClassServiceServer >> _methodServices [
 					svce update.
 					service := WabashMethodServiceServer new.
 					service _methodService: svce.
-					methodServices at: svce name put: service ].
+					methodServices at: svce name asString put: service ].
 			methodServices ]
 ]
 
