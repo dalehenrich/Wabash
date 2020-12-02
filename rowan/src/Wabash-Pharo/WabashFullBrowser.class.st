@@ -26,6 +26,11 @@ WabashFullBrowser class >> initiateConnection [
 { #category : 'opening' }
 WabashFullBrowser class >> open [
 
+	"
+		Connection ifNotNil: [ Connection close.
+		Connection := nil ].
+	"
+
 	<script>
 	Connection ifNil: [ self initiateConnection ].
 	^ self openOn: WabashNavigationEnvironment currentImage
@@ -36,7 +41,8 @@ WabashFullBrowser >> close [
 
 	super close.
 	Connection ifNotNil: [ Connection close ].
-	Connection := nil
+	Connection := nil.
+
 ]
 
 { #category : 'navigation' }

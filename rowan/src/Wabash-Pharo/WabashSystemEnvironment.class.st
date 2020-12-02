@@ -7,9 +7,11 @@ Class {
 { #category : 'accessing' }
 WabashSystemEnvironment class >> currentImage [
 	^currentImage ifNil: [
+		| packageService |
+		packageService := ((WabashFullBrowser connection serviceFor: #'WabashBrowserService') projectNamed: 'Rowan').
 		currentImage := self new
 			name: 'remote gemstone';
 			globals: (WabashFullBrowser connection serviceFor: #WabashSystemGlobalsService);
-			packageOrganizer: RPackageOrganizer default;
+			packageOrganizer: packageService;
 			changesAnnouncer: SystemAnnouncer uniqueInstance]
 ]
