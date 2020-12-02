@@ -7,7 +7,7 @@ Class {
 { #category : 'opening' }
 WabashFullBrowser class >> open [
 	<script>
-	^ self openOn: ClyNavigationEnvironment currentImage
+	^ self openOn: WabashNavigationEnvironment currentImage
 ]
 
 { #category : 'initialization' }
