@@ -37,10 +37,10 @@ WabashPackageServiceServer >> _packageService: object [
 
 { #category : 'accessing' }
 WabashPackageServiceServer >> classNamed: aString [
-	^self _classServices at: aString
+	^ self _classServices at: aString
 ]
 
 { #category : 'accessing' }
 WabashPackageServiceServer >> classNames [
-	classNames ifNil: [ classNames := self _classServices keys asArray sort ]
+	^ classNames ifNil: [ classNames := self _classServices keys asArray sort ]
 ]

@@ -27,7 +27,9 @@ WabashClientTest >> tearDown [
 
 { #category : 'tests' }
 WabashClientTest >> testBrowser [
-	| projectNames projectService packageNames |
+	"test the chain of services from browser service to method service"
+
+	| projectNames projectService packageNames packageService classNames classService instanceMethodNames classMethodNames methodService |
 	projectNames := browserService projectNames.
 	self
 		assert:
@@ -44,8 +46,33 @@ WabashClientTest >> testBrowser [
 	self
 		assert:
 			{'STON-Core'.
-			'STON-GemStoneBase'.
-			'STON-GemStoneCommon'.
 			'STON-GemStone-Kernel'.
-			'STON-STON-GemStone-Kernel36x'} = packageNames
+			'STON-GemStone-Kernel36x'.
+			'STON-GemStoneBase'.
+			'STON-GemStoneCommon'} = packageNames.
+	packageService := projectService packageNamed: 'STON-Core'.
+	classNames := packageService classNames.
+	self
+		assert:
+			{'STON'.
+			'STONListWriter'.
+			'STONMapWriter'.
+			'STONReader'.
+			'STONReaderError'.
+			'STONReference'.
+			'STONShortListWriter'.
+			'STONStreamWriter'.
+			'STONWriter'.
+			'STONWriterError'} = classNames.
+	classService := packageService classNamed: 'STONReaderError'.
+	instanceMethodNames := classService instanceMethodNames.
+	self
+		assert:
+			{'buildMessageText'.
+			'streamPosition'.
+			'streamPosition:'} = instanceMethodNames.
+	classMethodNames := classService classMethodNames.
+	self assert: {'signal:streamPosition:'} = classMethodNames.
+	methodService := classService instanceMethodNamed: 'streamPosition:'.
+	self assert: methodService methodName = 'streamPosition:'
 ]
