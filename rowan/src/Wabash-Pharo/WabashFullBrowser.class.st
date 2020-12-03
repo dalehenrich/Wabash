@@ -10,7 +10,7 @@ Class {
 { #category : 'accessing' }
 WabashFullBrowser class >> connection [
 
-	^ Connection
+	^ WabashSystemEnvironment rsrConnection
 ]
 
 { #category : 'rsr' }
@@ -26,30 +26,8 @@ WabashFullBrowser class >> initiateConnection [
 { #category : 'opening' }
 WabashFullBrowser class >> open [
 
-	"
-		Connection ifNotNil: [ Connection close.
-		Connection := nil ].
-	"
-
 	<script>
-	Connection ifNil: [ self initiateConnection ].
 	^ self openOn: WabashNavigationEnvironment currentImage
-]
-
-{ #category : 'opening/closing' }
-WabashFullBrowser >> close [
-
-	super close.
-	Connection ifNotNil: [ Connection close ].
-	Connection := nil.
-
-]
-
-{ #category : 'navigation' }
-WabashFullBrowser >> navigateSpawnedFullBrowser: aFullBrowser [
-
-	self initiateConnection.
-	^ super navigateSpawnedFullBrowser: aFullBrowser
 ]
 
 { #category : 'initialization' }
@@ -70,7 +48,7 @@ WabashFullBrowser >> newPackageView [
 	
 	newPackageView := self newNavigationView
 		treeStructure: 	{ 
-			ClyProjectChildItem -> #prepareProjectItemsQueryFrom:in:.
+			WabashProjectChildItem -> #prepareProjectItemsQueryFrom:in:.
 			RPackage -> #prepareClassGroupQueryFrom:in: };
 		enableFilterUsing: ClyRegexPattern new;
 		requestNavigationBy: #packageSelectionChanged.
@@ -80,6 +58,17 @@ WabashFullBrowser >> newPackageView [
 		to: self.
 		
 	^ newPackageView
+]
+
+{ #category : 'accessing selection' }
+WabashFullBrowser >> projectChildrenSelection [
+	^packageView selection asSelectedParentsOf: WabashProjectChildItem
+]
+
+{ #category : 'accessing' }
+WabashFullBrowser >> projectClass [
+
+	^ WabashManagedProject
 ]
 
 { #category : 'navigation' }
