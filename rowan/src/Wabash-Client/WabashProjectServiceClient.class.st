@@ -13,3 +13,8 @@ WabashProjectServiceClient >> packageNamed: aString [
 WabashProjectServiceClient >> packageNames [
 	^ remoteSelf packageNames wait
 ]
+
+{ #category : 'accessing' }
+WabashProjectServiceClient >> packages [
+	^ remoteSelf packages wait
+]

@@ -18,6 +18,7 @@ WabashProjectServiceServer >> _packageServices [
 					| service |
 					svce update.
 					service := WabashPackageServiceServer new
+						packageName: svce name;
 						_packageService: svce;
 						yourself.
 					packageServices at: svce name put: service ].
@@ -43,4 +44,10 @@ WabashProjectServiceServer >> packageNamed: aString [
 WabashProjectServiceServer >> packageNames [
 	^ packageNames
 		ifNil: [ packageNames := self _packageServices keys asArray sort ]
+]
+
+{ #category : 'accessing' }
+WabashProjectServiceServer >> packages [
+	^ packages
+		ifNil: [ packages := self packageNames collect: [ :each | self packageNamed: each ] ]
 ]

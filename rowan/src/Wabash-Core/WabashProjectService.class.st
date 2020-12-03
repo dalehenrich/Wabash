@@ -3,7 +3,8 @@ Class {
 	#superclass : 'RsrService',
 	#instVars : [
 		'projectName',
-		'packageNames'
+		'packageNames',
+		'packages'
 	],
 	#category : 'Wabash-Core'
 }
@@ -21,5 +22,10 @@ WabashProjectService >> packageNamed: aString [
 
 { #category : 'accessing' }
 WabashProjectService >> packageNames [
+	self subclassResponsibility
+]
+
+{ #category : 'accessing' }
+WabashProjectService >> packages [
 	self subclassResponsibility
 ]

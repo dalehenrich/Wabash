@@ -13,3 +13,13 @@ WabashPackageServiceClient >> classNamed: aString [
 WabashPackageServiceClient >> classNames [
 	^ remoteSelf classNames wait
 ]
+
+{ #category : 'RPackage accessing' }
+WabashPackageServiceClient >> name [
+	^ self packageName
+]
+
+{ #category : 'accessing' }
+WabashPackageServiceClient >> packageName [
+	^ remoteSelf packageName wait
+]

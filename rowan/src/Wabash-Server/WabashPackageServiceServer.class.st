@@ -56,3 +56,13 @@ WabashPackageServiceServer >> classNamed: aString [
 WabashPackageServiceServer >> classNames [
 	^ classNames ifNil: [ classNames := self _classServices keys asArray sort ]
 ]
+
+{ #category : 'accessing' }
+WabashPackageServiceServer >> packageName [
+	^packageName
+]
+
+{ #category : 'accessing' }
+WabashPackageServiceServer >> packageName: object [
+	packageName := object
+]

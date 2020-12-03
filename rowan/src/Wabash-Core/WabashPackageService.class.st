@@ -23,3 +23,8 @@ WabashPackageService >> classNamed: aString [
 WabashPackageService >> classNames [
 	self subclassResponsibility
 ]
+
+{ #category : 'accessing' }
+WabashPackageService >> packageName [
+	self subclassResponsibility
+]
